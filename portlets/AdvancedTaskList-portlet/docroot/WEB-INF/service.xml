@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.liferay.AdvancedTasks">
+	<author>David Proba</author>
+	<namespace>AdvancedTasks</namespace>
+
+	
+	<entity name="AdvTask" local-service="true" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="atId" type="long" primary="true" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="atTitle" type="String" />
+		<column name="atDescription" type="String" />
+		<column name="atStartDate" type="Date" />
+		<column name="atFinalDate" type="Date" />
+		<column name="atPriority" type="int" />
+		<column name="atStatus" type="int" />
+		<column name="atModifierUserId" type="long" />
+		<column name="atAssignedToUserId" type="long" />
+		<column name="atResolverUserId" type="long" />
+		<column name="atParentTaskId" type="long" />
+		
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+	    
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="atPriority" />
+			<order-column name="atFinalDate" />
+			<order-column name="modifiedDate" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="Status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="ParentTaskId" return-type="Collection">
+			<finder-column name="atParentTaskId" />
+		</finder>
+		<finder name="AssignedToUserId" return-type="Collection">
+			<finder-column name="atAssignedToUserId" />
+		</finder>
+		<reference package-path="com.liferay.portlet.social" entity="SocialActivity" />
+		<reference package-path="com.liferay.portal" entity="User" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+	</entity>
+	<entity name="AdvTaskMapping" local-service="true" remote-service="false">
+		<!-- PK fields -->
+		<column name="atMId" type="long" primary="true" />
+		<column name="atMTaskId" type="long" />
+		<column name="atMDependentFromId" type="long" />
+		<!-- Finder methods -->
+		<finder name="MTaskId" return-type="Collection">
+			<finder-column name="atMTaskId" />
+		</finder>
+		<finder name="DependentFromId" return-type="Collection">
+			<finder-column name="atMDependentFromId" />
+		</finder>
+	</entity>
+    <exceptions>
+        <exception>startDateException</exception>
+        <exception>finalDateException</exception>
+    </exceptions>
+
+
+</service-builder>

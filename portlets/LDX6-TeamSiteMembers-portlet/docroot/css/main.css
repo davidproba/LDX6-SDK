@@ -1,0 +1,38 @@
+.member {
+	padding: 16px;
+}
+
+.memberimage {
+	display:inline-block;
+	padding-right: 16px;
+}
+
+.memberimage img {
+	max-width:65px;
+	border-radius:50%;
+}
+
+.membertxt {
+	display:inline-block;
+	vertical-align: top;
+	font-weight: bold;
+	padding-top:8px;
+}
+
+.membertxt a {
+/*	color: white !important; */
+}
+
+.team-site-members-portlet .portlet {
+	background-color: #fff;
+}
+
+.team-site-members-portlet .portlet-title {
+	color: black !important;
+	border-bottom: 0px !important;
+    font-size: 1.8em !important;
+    line-height: 1.8em !important;
+    padding: 16px;
+    padding-bottom: 0px;
+}
+

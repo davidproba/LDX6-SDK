@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.AdvancedTasks.model.AdvTask">
+		<field name="uuid" type="String" />
+		<field name="atId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="atTitle" type="String" />
+		<field name="atDescription" type="String" />
+		<field name="atStartDate" type="Date" />
+		<field name="atFinalDate" type="Date" />
+		<field name="atPriority" type="int" />
+		<field name="atStatus" type="int" />
+		<field name="atModifierUserId" type="long" />
+		<field name="atAssignedToUserId" type="long" />
+		<field name="atResolverUserId" type="long" />
+		<field name="atParentTaskId" type="long" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+	<model name="com.liferay.AdvancedTasks.model.AdvTaskMapping">
+		<field name="atMId" type="long" />
+		<field name="atMTaskId" type="long" />
+		<field name="atMDependentFromId" type="long" />
+	</model>
+</model-hints>

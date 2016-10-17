@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_BeaconDDL_BeaconDDLService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.sample.liferay.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActiveBeaconBody" qname="operNS:getActiveBeaconBody" returnQName="getActiveBeaconBodyReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.sample.liferay.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActiveBeaconHeader" qname="operNS:getActiveBeaconHeader" returnQName="getActiveBeaconHeaderReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.sample.liferay.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActiveBeaconMajor" qname="operNS:getActiveBeaconMajor" returnQName="getActiveBeaconMajorReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.sample.liferay.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActiveBeaconMinor" qname="operNS:getActiveBeaconMinor" returnQName="getActiveBeaconMinorReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.sample.liferay.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActiveBeaconUUID" qname="operNS:getActiveBeaconUUID" returnQName="getActiveBeaconUUIDReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="companyId" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getActiveBeaconBody getActiveBeaconHeader getActiveBeaconMajor getActiveBeaconMinor getActiveBeaconUUID" />
+		<parameter name="className" value="com.liferay.sample.service.http.BeaconDDLServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="BeaconDDLServiceSoap" />
+		<parameter name="wsdlServiceElement" value="BeaconDDLServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_BeaconDDL_BeaconDDLService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.sample.liferay.com" />
+	</service>
+</deployment>

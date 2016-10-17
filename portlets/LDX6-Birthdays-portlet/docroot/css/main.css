@@ -1,0 +1,67 @@
+.mateswrapper {
+	text-align:center;
+}
+
+.matestitle {
+	font-weight:bold;
+	font-size:2em;
+}
+
+.matestitle i {
+	font-size: 3em;
+}
+
+.mate {
+	border-top: 1px solid #ddd;
+	width: 60%;
+	margin: auto;
+	text-align:left;
+	padding-left:10%;
+}
+
+.mateb {
+	width:70%;
+	margin:auto;
+	text-align:left;
+	padding-left:10%;
+}
+
+div.mate:first-child, div:not(.mate) + div.mate {
+	border-top: none;
+	padding-top:48px;
+}
+
+.mate-portrait {
+	padding:16px;
+	width:40px;
+	max-height:40px;
+	margin: 0px;
+	margin-bottom:0px;
+	display: inline-block;
+}
+
+.mate-portrait img {
+	border-radius:50%;
+	max-width:40px;
+}
+
+.mate-txt {
+	padding:16px 0px;
+	position:relative;
+	margin-left: 20px;
+	min-height:40px;
+	display: inline-block;
+}
+
+.mate-name {
+	font-weight:bold;
+}
+
+.mate-txt .icon-calendar {
+	padding-right:8px;	
+}
+
+.mate-txt .icon-beer {
+	padding-right:8px;	
+	padding-left:32px;
+}

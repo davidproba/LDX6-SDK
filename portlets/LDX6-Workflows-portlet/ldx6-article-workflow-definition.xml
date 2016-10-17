@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<workflow-definition xmlns="urn:liferay.com:liferay-workflow_6.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:liferay.com:liferay-workflow_6.2.0 http://www.liferay.com/dtd/liferay-workflow-definition_6_2_0.xsd">
+	<name>LDX6 Shoe Article</name>
+	<description>A single approver can approve a workflow content.</description>
+	<version>1</version>
+	<state>
+		<name>created</name>
+		<metadata><![CDATA[{"transitions":{"review":{"bendpoints":[]}},"xy":[36,51]}]]></metadata>
+		<initial>true</initial>
+		<transitions>
+            <transition>
+                <name>review</name>
+                <target>review</target>
+                <default>true</default>
+            </transition>
+		</transitions>
+	</state>
+	<state>
+		<name>approved</name>
+		<metadata>
+			<![CDATA[{"xy":[380,51]}]]>
+		</metadata>
+		<actions>
+			<action>
+				<name>approve</name>
+					<script><![CDATA[import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portlet.dynamicdatalists.model.DDLRecord;
+import com.liferay.portlet.dynamicdatalists.model.DDLRecordSet;
+import com.liferay.portlet.dynamicdatalists.service.DDLRecordServiceUtil;
+import com.liferay.portlet.dynamicdatalists.service.DDLRecordSetLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
+import com.liferay.portlet.dynamicdatamapping.storage.Field;
+import com.liferay.portlet.dynamicdatamapping.storage.Fields;
+import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
+import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.model.JournalFolder;
+import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
+import com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil;
+import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * init
+ */
+long companyId = GetterUtil.getLong((String)workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+long classPK = GetterUtil.getLong((String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK));
+long groupId = GroupLocalServiceUtil.getGroup(companyId, "LXM").getGroupId();
+long scopeGroupId = GetterUtil.getLong((String)workflowContext.get(WorkflowConstants.CONTEXT_GROUP_ID));
+long userId = GetterUtil.getLong((String)workflowContext.get(WorkflowConstants.CONTEXT_USER_ID))
+long folderId = 0L;
+ServiceContext serviceContext = (ServiceContext) workflowContext.get(WorkflowConstants.CONTEXT_SERVICE_CONTEXT);
+
+List<JournalFolder> folders = JournalFolderLocalServiceUtil.getFolders(groupId);
+for(JournalFolder jf:folders) {
+	if(jf.getName().contains("Shoes")) {
+		folderId=jf.getFolderId();
+	}
+}
+JournalArticle artTeam = JournalArticleLocalServiceUtil.getArticle(scopeGroupId, classPK.toString());
+Calendar cal = Calendar.getInstance();
+cal.setTime(artTeam.getDisplayDate());
+JournalArticle article;
+List<DDLRecordSet> recordSets = DDLRecordSetLocalServiceUtil.getRecordSets(GroupLocalServiceUtil.getGroup(companyId, "LXM").getGroupId());
+for(DDLRecordSet ddlRS:recordSets) {
+	if(ddlRS.getName().contains("Shoe Articles")) {
+		for(DDLRecord lookupRecord:ddlRS.getRecords()) {
+			/**
+			 * Does this article already exist in the web site?
+			 */
+			if(lookupRecord.getField("TeamContentID")!=null
+					&&lookupRecord.getFieldValue("TeamContentID").toString().contains(classPK.toString())) {
+				/**
+				 * Update web site article
+				 */
+				article = JournalArticleLocalServiceUtil.getArticle(groupId,
+						lookupRecord.getFieldValue("ContentID").toString());
+				article.setContent(artTeam.getContent());
+				article.setVersion(artTeam.getVersion());
+				article.setDisplayDate(artTeam.getDisplayDate());
+				article.setTitleMap(artTeam.getTitleMap());
+				article.setDescriptionMap(artTeam.getDescriptionMap());
+				article.persist();
+			} else {
+				/**
+				 * Create new web site article with team site article content
+				 */
+				article = JournalArticleLocalServiceUtil.addArticle(userId,
+						groupId, folderId, artTeam.getClassNameId(), artTeam.getClassPK(), "", true, 1.0,
+						artTeam.getTitleMap(), artTeam.getDescriptionMap(), artTeam.getContent(), artTeam.getType(),
+						artTeam.getStructureId(), artTeam.getTemplateId(), "827c2fcf-73a0-403b-8c8e-402146a99705",
+						cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH),
+						cal.get(Calendar.YEAR), cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE),
+						0, 0, 0, 0, 0, true, 0, 0, 0, 0, 0, true,
+						artTeam.isIndexable(), artTeam.getSmallImage(), artTeam.getSmallImageURL(),
+						null, new HashMap<String, byte[]>() , artTeam.getUrlTitle(), serviceContext);
+				/**
+				 * Create DDL Record
+				 */
+				DDMStructure ddmStructure = ddlRS.getDDMStructure();
+				Fields fields = DDMUtil.getFields(ddmStructure.getStructureId(), serviceContext);
+				Field field = new Field(ddmStructure.getStructureId(), "ContentID", article.getArticleId());
+				field.setDefaultLocale(themeDisplay.getSiteDefaultLocale());
+				fields.put(field);
+				field = new Field(ddmStructure.getStructureId(), "FolderID", article.getFolderId());
+				field.setDefaultLocale(themeDisplay.getSiteDefaultLocale());
+				fields.put(field);
+				field = new Field(ddmStructure.getStructureId(), "FriendlyLink", "/web/lxm/-/" + article.getUrlTitle());
+				field.setDefaultLocale(themeDisplay.getSiteDefaultLocale());
+				fields.put(field);
+				field = new Field(ddmStructure.getStructureId(), "TeamSiteID", scopeGroupId);
+				field.setDefaultLocale(themeDisplay.getSiteDefaultLocale());
+				fields.put(field);
+				field = new Field(ddmStructure.getStructureId(), "TeamContentID", classPK);
+				field.setDefaultLocale(themeDisplay.getSiteDefaultLocale());
+				fields.put(field);
+				DDLRecordServiceUtil.addRecord(groupId, ddlRS.getRecordSetId(), 0, fields, serviceContext);
+			}
+		}
+	}
+}
+WorkflowStatusManagerUtil.updateStatus(WorkflowConstants.toStatus("approved"), workflowContext);
+					]]></script>
+					<script-language>groovy</script-language>
+					<execution-type>onEntry</execution-type>
+			</action>
+		</actions>
+	</state>
+	<task>
+		<name>update</name>
+		<metadata>
+			<![CDATA[{"transitions":{"resubmit":{"bendpoints":[[303,140]]}},"xy":[328,199]}]]>
+		</metadata>
+		<actions>
+			<action>
+				<name>reject</name>
+				<script>
+					<![CDATA[Packages.com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil.updateStatus(Packages.com.liferay.portal.kernel.workflow.WorkflowConstants.toStatus("denied"), workflowContext);
+								Packages.com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil.updateStatus(Packages.com.liferay.portal.kernel.workflow.WorkflowConstants.toStatus("pending"), workflowContext);]]>
+				</script>
+				<script-language>javascript</script-language>
+				<execution-type>onAssignment</execution-type>
+			</action>
+			<notification>
+				<name>Creator Modification Notification</name>
+				<template>
+					<![CDATA[Your submission was rejected by ${userName}, please modify and resubmit.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients>
+					<user/>
+				</recipients>
+				<execution-type>onAssignment</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<user/>
+		</assignments>
+		<transitions>
+			<transition>
+				<name>resubmit</name>
+				<target>review</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>review</name>
+		<metadata><![CDATA[{"transitions":{"approve":{"bendpoints":[]},"reject":{"bendpoints":[]}},"xy":[168,36]}]]></metadata>
+		<actions>
+			<notification>
+				<name>Review Notification</name>
+				<template>
+					<![CDATA[${userName} sent you a ${entryType} for review in the workflow.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients>
+					<user/>
+				</recipients>
+				<execution-type>onAssignment</execution-type>
+			</notification>
+			<notification>
+				<name>Review Completion Notification</name>
+				<template>
+					<![CDATA[Your submission has been reviewed and the reviewer has applied the following ${taskComments}.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>email</notification-type>
+				<recipients>
+					<user/>
+				</recipients>
+				<execution-type>onExit</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<roles>
+				<role>
+					<role-type>organization</role-type>
+					<name>Organization Administrator</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>organization</role-type>
+					<name>Organization Content Reviewer</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>organization</role-type>
+					<name>Organization Owner</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>regular</role-type>
+					<name>Administrator</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>regular</role-type>
+					<name>Portal Content Reviewer</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>site</role-type>
+					<name>Site Administrator</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>site</role-type>
+					<name>Site Content Reviewer</name>
+					<auto-create>false</auto-create>
+				</role>
+				<role>
+					<role-type>site</role-type>
+					<name>Site Owner</name>
+					<auto-create>false</auto-create>
+				</role>
+			</roles>
+		</assignments>
+		<transitions>
+			<transition>
+				<name>approve</name>
+				<target>approved</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<name>reject</name>
+				<target>update</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+</workflow-definition>

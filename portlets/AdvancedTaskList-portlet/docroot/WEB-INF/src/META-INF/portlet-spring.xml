@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.liferay.AdvancedTasks.service.AdvTaskLocalService" class="com.liferay.AdvancedTasks.service.impl.AdvTaskLocalServiceImpl" />
+	<bean id="com.liferay.AdvancedTasks.service.persistence.AdvTaskPersistence" class="com.liferay.AdvancedTasks.service.persistence.AdvTaskPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.AdvancedTasks.service.AdvTaskMappingLocalService" class="com.liferay.AdvancedTasks.service.impl.AdvTaskMappingLocalServiceImpl" />
+	<bean id="com.liferay.AdvancedTasks.service.persistence.AdvTaskMappingPersistence" class="com.liferay.AdvancedTasks.service.persistence.AdvTaskMappingPersistenceImpl" parent="basePersistence" />
+</beans>

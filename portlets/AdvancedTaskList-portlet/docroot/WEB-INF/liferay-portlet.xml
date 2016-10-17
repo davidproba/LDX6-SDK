@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>ProjectTasks</portlet-name>
+		<icon>/icon.png</icon>
+		<indexer-class>com.liferay.AdvancedTasks.search.AdvTaskIndexer</indexer-class>	
+		<friendly-url-mapper-class>com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper</friendly-url-mapper-class>
+		<friendly-url-mapping>advtasks</friendly-url-mapping>
+		<friendly-url-routes>com/liferay/AdvancedTasks/friendlyurl/advtask-friendly-url-routes.xml</friendly-url-routes>
+		<social-activity-interpreter-class>
+			com.liferay.AdvancedTasks.social.AdvTaskSocialActivityInterpreter
+		</social-activity-interpreter-class>		
+		<user-notification-definitions>com/liferay/AdvancedTasks/notification/tasks-user-notification-definitions.xml</user-notification-definitions>
+		<user-notification-handler-class>com.liferay.AdvancedTasks.notification.AdvTaskUserNotificationHandler</user-notification-handler-class>
+		<asset-renderer-factory>com.liferay.AdvancedTasks.asset.AdvTaskAssetRendererFactory</asset-renderer-factory>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>ProjectTasks-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>upcoming-tasks</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>upcoming-tasks-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>personal-tasks</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>personal-tasks-portlet</css-class-wrapper>
+	</portlet>
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>

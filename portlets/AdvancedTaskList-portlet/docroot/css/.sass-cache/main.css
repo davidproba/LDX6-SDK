@@ -1,0 +1,169 @@
+@import url(dhtmlxgantt.css);
+@import url(jquery.circliful.css);
+.lfr-search-container {
+  margin-top: 0px; }
+
+#tasklegend {
+  display: inline-block;
+  position: relative; }
+  #tasklegend .helpicon {
+    display: inline-block;
+    position: relative; }
+    #tasklegend .helpicon:before {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("../img/Help.png");
+      content: "";
+      cursor: pointer; }
+  #tasklegend #legend {
+    padding: 8px 16px 16px;
+    width: 250px; }
+    #tasklegend #legend .current {
+      display: inline-block;
+      margin-right: 10px; }
+    #tasklegend #legend .help {
+      display: inline-block;
+      height: 14px;
+      line-height: 14px;
+      position: relative;
+      top: -20px; }
+
+.task-container {
+  display: block;
+  position: absolute;
+  margin-top: 1px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+  /*	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12); */ }
+  .task-container .task-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px; }
+
+.task-data-container {
+  color: #999;
+  margin-bottom: 1em; }
+  .task-data-container .task-data {
+    display: inline;
+    margin-right: 1em;
+    padding: 1px 0.5em 1px 20px; }
+  .task-data-container .reporter {
+    background: url(@theme_image_path@/common/add_user.png) no-repeat 0 50%; }
+  .task-data-container .assignee {
+    background: url(@theme_image_path@/common/assign.png) no-repeat 0 50%; }
+  .task-data-container .modified-date {
+    background: url(@theme_image_path@/common/calendar.png) no-repeat 0 50%;
+    border-right-width: 0; }
+
+.task-data-table {
+  margin: 16px 0px;
+  width: 100%; }
+  .task-data-table .lfr-label {
+    font-weight: bold;
+    padding-right: 20px; }
+  .task-data-table tr td {
+    padding-bottom: 4px; }
+  .task-data-table td.bgtd {
+    padding: 0px !important;
+    width: 5px; }
+  .task-data-table td.tdtable {
+    padding-left: 12px !important; }
+
+.comment-wrapper {
+  margin: 0px;
+  display: block;
+  padding: 8px 0px;
+  border-bottom: 1px solid #ddd; }
+  .comment-wrapper .comment-pic {
+    padding: 5px;
+    display: block;
+    float: left; }
+    .comment-wrapper .comment-pic img {
+      max-width: 32px;
+      border-radius: 50%; }
+  .comment-wrapper .comment-body {
+    padding-top: 4px; }
+    .comment-wrapper .comment-body .user-name a {
+      font-weight: bold; }
+  .comment-wrapper .comment-info {
+    color: #999999; }
+
+.new-wrapper {
+  margin: 0px;
+  display: block;
+  padding: 8px 0px; }
+  .new-wrapper .comment-pic {
+    padding: 5px;
+    display: block;
+    float: left; }
+    .new-wrapper .comment-pic img {
+      max-width: 32px;
+      border-radius: 50%; }
+  .new-wrapper .comment-form {
+    margin-top: 5px; }
+  .new-wrapper .comment-input {
+    float: left;
+    display: inline-block; }
+    .new-wrapper .comment-input input {
+      margin: 0px !important;
+      padding: 9px 0px 5px !important; }
+
+.progress-wrapper {
+  height: 100%;
+  position: relative;
+  display: block;
+  margin-top: 5px; }
+  .progress-wrapper .current {
+    position: relative;
+    display: block;
+    border: 1px solid #ccc;
+    height: 14px;
+    width: 100px; }
+    .progress-wrapper .current .progress {
+      height: 14px;
+      background-image: none !important;
+      border-radius: 0px; }
+
+#_ProjectTasks_WAR_AdvancedTaskListportlet_advTasksSearchContainer {
+  background-color: #fff; }
+
+#_personaltasks_WAR_AdvancedTaskListportlet_advTasksSearchContainer {
+  background-color: #fff; }
+
+.button-holder {
+  margin: 0px; }
+
+.uptwrapper {
+  /*	box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.32), 2px 5px 20px 0px rgba(0, 0, 0, 0.24); */
+  margin-bottom: 2.5rem;
+  background: transparent linear-gradient(135deg, #6d87c9 0%, #425ba6 100%) repeat scroll 0% 0%; }
+  .uptwrapper .upttitle {
+    font-size: 22px;
+    line-height: 45px;
+    padding: 26px 16px 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-weight: normal;
+    margin-bottom: 12px;
+    /*		font-size: 1.2em;
+    		line-height: 1.2em;
+    		padding: 12px 10px 9px;
+    		background-color: rgba(0,0,0,0.2);
+    		color: white;
+    		font-weight: bold;
+    		margin-bottom: 12px; */ }
+  .uptwrapper .uptcontent {
+    position: relative;
+    padding: 0px 12px; }
+    .uptwrapper .uptcontent .uptchart {
+      position: relative; }
+    .uptwrapper .uptcontent .upttop5 {
+      position: relative; }
+      .uptwrapper .uptcontent .upttop5 img {
+        padding-right: 5px; }
+      .uptwrapper .uptcontent .upttop5 a {
+        color: white !important; }
+

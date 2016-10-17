@@ -1,0 +1,44 @@
+.summary-container {
+  background-color: #fff;
+  margin-bottom: 2.5rem;
+  color: black; }
+
+.summary-projectname {
+  font-size: 1.8em !important;
+  line-height: 1.8em !important;
+  padding: 16px;
+  padding-bottom: 0px; }
+
+.summary-text {
+  position: relative;
+  clear: both; }
+
+.summary-texttext {
+  text-align: justify;
+  padding: 16px; }
+
+.summary-text img {
+  min-width: 100px;
+  max-width: 50%;
+  float: right;
+  display: block;
+  padding: 16px; }
+
+.leave-site {
+  padding: 0px 16px 16px 16px;
+  text-transform: uppercase;
+  color: white; }
+
+.leave-site a {
+  /*	color: white !important; */ }
+
+.leave-site i {
+  padding-right: 8px; }
+
+.join-site {
+  padding-top: 16px;
+  text-transform: uppercase; }
+
+.join-site i {
+  padding-right: 8px; }
+

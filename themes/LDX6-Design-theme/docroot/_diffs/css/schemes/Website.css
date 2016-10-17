@@ -1,0 +1,188 @@
+@import "compass";
+@import "compass/css3/user-interface";
+@import "mixins";
+
+
+body.Website {
+	
+	#banner {
+		background: rgba(0,0,0,0.4) !important;
+		position:absolute;
+	}
+	
+	.lfr-hudcrumbs {
+		position: fixed;
+		top: 0;
+		z-index: 300;
+		height:46px;
+		background: rgba(0,0,0,0.4) !important;
+		a {
+			color: white;
+			display: inline-block;
+
+			&:hover, &.active {
+				text-decoration: none;
+			}
+		}
+
+		#heading {
+			display: inline-block;
+
+			.default-logo {
+				min-height: 35px;
+
+				img {
+					max-height: 35px;
+					max-width: 35px;
+					padding-top: 3px;
+				}
+			}
+		}
+
+		#navigation {
+			.delete-tab {
+				display: none;
+			}
+			display: block;
+			text-align: justify;
+
+			ul {
+				margin: 0;
+				min-height: 35px;
+				vertical-align: top;
+			}
+
+			#heading {
+				display: inline-block;
+				width: 35px;
+			}
+
+			li {
+				display: inline-block;
+				list-style: none;
+
+				a {
+					display: block;
+					font-size: 110%;
+					font-weight: 300;
+					line-height: 25px;
+					padding: 10px;
+				}
+
+				&.selected a {
+					opacity: 1 !important;
+				}
+			}
+
+			#sign-in {
+				display: inline-block;
+				font-size: 20px;
+				margin-left: 20px;
+				vertical-align: middle;
+			}
+
+			.right-icon-group {
+				display: inline-block;
+				text-align: right;
+			}
+
+			.portlet-search {
+				display: inline-block;
+				position: relative;
+				right: -30px;
+
+				form {
+					margin: 0;
+					padding: 0;
+
+					input {
+						margin-bottom: 3px;
+						padding: 0;
+						width: 1px;
+
+						@include border-radius(5px);
+						@include opacity(0);
+					}
+
+					select, input[type="image"] {
+						display: none;
+					}
+				}
+			}
+
+			.ul-main-nav:after {
+				content: " ";
+				display: inline-block;
+				height: 0;
+				position: relative;
+				width: 100%;
+			}
+
+			* {
+				@include transition(all 0.5s ease);
+				@include translate3d(0, 0, 0, 0);
+			}
+		}
+	}
+
+	#content {
+		padding: 46px 0px 0px 0px;
+	}
+	
+	#macModal {
+		border-radius: 0;
+		height: 100%;
+		display: block !important;
+		left: inherit !important;
+		overflow: auto;
+		right: -50% !important;
+		top: 0 !important;
+		width: 50%;
+		background: white;
+		color: #555;
+		@include transform(rotate(-20deg));
+
+		&.animOn {
+			right: 0 !important;
+
+			@include transition(all 0.2s ease);
+			@include transform(rotate(0));
+			@include translate3d(0, 0, 0, 0);
+		}
+
+		.hide {
+			display: block !important;
+			margin: 15px 0;
+
+			.row-fluid {
+				margin: 25px 0;
+			}
+		}
+
+		.modal-header {
+			border-bottom: 1px solid #aaa;
+			padding: 10px 25px;
+
+			.close {
+				color: #FFF;
+				font-size: 45px;
+				line-height: 40px;
+				opacity: 1;
+				width: 30px;
+			}
+		}
+
+		.modal-body {
+			padding: 25px;
+			max-height: inherit;
+
+			img.full {
+				width: 100%;
+			}
+
+			h1 {
+				display: none;
+			}
+		}
+	}
+}

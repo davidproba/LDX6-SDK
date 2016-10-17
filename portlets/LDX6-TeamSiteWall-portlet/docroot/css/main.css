@@ -1,0 +1,37 @@
+.wp-comment-wrapper {
+		position:relative;
+		margin: 0px 0px 2.5rem;
+		padding: 16px;
+		background-color: #fafafa;
+}
+
+
+.comment-div {
+		position:relative;
+		margin: 0px 6px;
+}
+
+.comment-div textarea {
+	-webkit-box-shadow: none !important;
+    -moz-box-shadow:  none !important;
+    box-shadow:  none !important;
+    border-color: #ccc !important;
+}
+
+.wp-comment-wrapper .btn {
+	display:none;
+}
+
+.comment-text {
+		margin: 5px -6px !important;
+}
+
+.comment-text-stand {
+		width: 50% !important;
+		height: 30px !important;
+}
+
+.comment-text-focus {
+		width: 100% !important;
+		height: 90px !important;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.liferay.AdvancedTasks.model.AdvTask" />
+	<import class="com.liferay.AdvancedTasks.model.AdvTaskMapping" />
+	<class name="com.liferay.AdvancedTasks.model.impl.AdvTaskImpl" table="AdvancedTasks_AdvTask">
+		<cache usage="read-write" />
+		<id name="atId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="atTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="atDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="atStartDate" type="org.hibernate.type.TimestampType" />
+		<property name="atFinalDate" type="org.hibernate.type.TimestampType" />
+		<property name="atPriority" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="atStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="atModifierUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="atAssignedToUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="atResolverUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="atParentTaskId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="statusByUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.liferay.AdvancedTasks.model.impl.AdvTaskMappingImpl" table="AdvancedTasks_AdvTaskMapping">
+		<cache usage="read-write" />
+		<id name="atMId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="atMTaskId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="atMDependentFromId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

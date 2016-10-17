@@ -1,0 +1,33 @@
+<div id="tasklegend" class="hide">
+	<h4>Legende</h4>
+	<div class="leg">
+		<div class="legcol colred">&nbsp;</div>
+		<div class="legtxt">Deadline überschritten</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="leg">
+		<div class="legcol colorange">&nbsp;</div>
+		<div class="legtxt">Priorität hoch</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="leg">
+		<div class="legcol colyellow">&nbsp;</div>
+		<div class="legtxt">Priorität normal</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="leg">
+		<div class="legcol colgreen">&nbsp;</div>
+		<div class="legtxt">Priorität niedrig</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="leg">
+		<div class="legcol colsilver">&nbsp;</div>
+		<div class="legtxt">Aufgabe erledigt</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="leg">
+		<div class="legcol colpurple">&nbsp;</div>
+		<div class="legtxt">Aufgabe wiedereröffnet</div>
+		<div style="clear:both"></div>
+	</div>
+</div>

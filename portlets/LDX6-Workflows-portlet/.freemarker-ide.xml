@@ -1,0 +1,19 @@
+<config>
+	<context-values>
+		<resource path="">
+			<value key="entryType" object-class="java.lang.String" item-class="java.lang.String"/>
+			<value key="companyId" object-class="java.lang.Long" item-class="java.lang.Long"/>
+			<value key="entryClassPK" object-class="java.lang.Long" item-class="java.lang.Long"/>
+			<value key="workflowContext" object-class="java.util.Map" item-class="java.util.Map"/>
+			<value key="entryClassName" object-class="java.lang.String" item-class="java.lang.String"/>
+			<value key="groupId" object-class="java.lang.Long" item-class="java.lang.Long"/>
+			<value key="taskComments" object-class="java.lang.String" item-class="java.lang.String"/>
+			<value key="serviceContext" object-class="java.util.Map" item-class="java.util.Map"/>
+			<value key="userId" object-class="java.lang.Long" item-class="java.lang.Long"/>
+			<value key="transitionName" object-class="java.lang.String" item-class="java.lang.String"/>
+			<value key="workflowTaskAssignees" object-class="java.util.List" item-class="java.util.List"/>
+		</resource>
+	</context-values>
+	<macro-library>
+	</macro-library>
+</config>

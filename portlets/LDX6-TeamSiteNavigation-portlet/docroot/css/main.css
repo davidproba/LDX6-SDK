@@ -1,0 +1,85 @@
+#p_p_id_teamsitenavigation_WAR_LDX6TeamSiteNavigationportlet_ {
+	height:47px;
+}
+
+.proNav {
+	width: 100vw;
+	position:fixed;
+	left: 0px;
+	list-style: none;
+	margin: 0px !important;
+	padding: 0px !important;
+	background-color:white;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+	z-index:20;
+}
+
+.fixedNav {
+	position:fixed;
+	top:0px;
+	left:0px;
+}
+
+.proNavItem {
+	display:inline-block;
+	position:relative;
+}
+
+#actionItem {
+	display:none;
+	cursor: pointer;
+}
+
+.proNavItem #actionswrapper {
+	position:absolute;
+	top:32px;
+	left:0px;
+	width: 250px;
+}
+
+.proNavItem #actionswrapper button {
+	background-color: white;
+	background-image: none;
+	border: none;
+	color: rgb(152,152,152);
+	width:100%;
+	text-align: left;
+	padding: 6px 16px;
+}
+
+.proNavItem #actionswrapper button i {
+	padding-right: 4px;
+}
+
+.proNavLink {
+	padding:10px 24px;
+	text-decoration: none !important;
+	font-weight: bold;
+	display:block;
+	position:relative;
+	color: #555 !important;
+}
+
+.proNavLink:hover {
+	background-color: #ddd;
+}
+
+.proNavItem .active {
+/*	background-color: #3366cc; 
+	color:white !important; */
+}
+
+.proNavItem .linkicon {
+	display:none !important;
+}
+
+@media (max-width: 460px) {
+	.proNavItem .linkicon {
+		display: inline !important;
+	}
+	
+	.proNavItem .linktext {
+		display:none;
+	}
+}

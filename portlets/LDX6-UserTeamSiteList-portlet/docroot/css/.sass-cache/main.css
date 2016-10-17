@@ -1,0 +1,46 @@
+.lfr-search-container {
+  margin: 32px 2em; }
+
+.lfr-search-container thead {
+  display: none; }
+
+.lfr-search-container .collogo {
+  width: 80px; }
+
+.lfr-search-container .prologo {
+  max-width: 64px; }
+
+.lfr-search-container .colname {
+  font-weight: bold; }
+
+.lfr-search-container .coldesc {
+  width: 75%; }
+
+.lfr-search-container .table-bordered {
+  border: none; }
+
+.lfr-search-container .table-bordered tr > td {
+  background-color: white !important;
+  border: none !important; }
+
+.member {
+  padding: 0px 16px 16px;
+  text-align: center;
+  display: inline-block; }
+
+.member:nth-child(1) {
+  border-top: none; }
+
+.memberimage {
+  display: block; }
+
+.memberimage img {
+  max-width: 32px;
+  border-radius: 50%; }
+
+.membertxt {
+  display: block;
+  vertical-align: top;
+  font-weight: bold;
+  padding-top: 8px; }
+

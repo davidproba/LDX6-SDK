@@ -1,0 +1,1 @@
+create index IX_D5D703FD on BeaconDDL_BeaconDDL (uuid_);

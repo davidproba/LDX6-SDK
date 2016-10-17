@@ -1,0 +1,15 @@
+.comment-wrapper {
+  position: relative;
+  margin: 0px 0px 20px;
+  padding: 12px 10px 10px;
+  background-color: #fff;
+  box-shadow: 0px 0.125rem 0.313rem rgba(0, 0, 0, 0.2); }
+
+.comment-div {
+  position: relative;
+  margin: 0px 6px; }
+
+.comment-text {
+  margin: 5px -6px !important;
+  width: 100% !important; }
+

@@ -1,0 +1,133 @@
+.aui {
+  /* ---------- List styles ---------- */
+  /* ---------- Images bg-fixed ---------- */ }
+  .aui .carousel-container .carousel-item img {
+    max-width: inherit;
+    width: 100%; }
+  .aui .carousel-container .carousel-item .carousel-text {
+    background: rgba(0, 0, 0, 0.4);
+    bottom: 20%;
+    color: #FFF;
+    padding: 10px 10% 20px;
+    position: absolute;
+    text-align: center;
+    width: 80%; }
+    .aui .carousel-container .carousel-item .carousel-text h1, .aui .carousel-container .carousel-item .carousel-text h2, .aui .carousel-container .carousel-item .carousel-text p, .aui .carousel-container .carousel-item .carousel-text a {
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      -webkit-transform: perspective(0) translate3d(0, 0, 0);
+      -moz-transform: perspective(0) translate3d(0, 0, 0);
+      -ms-transform: perspective(0) translate3d(0, 0, 0);
+      -o-transform: perspective(0) translate3d(0, 0, 0);
+      transform: perspective(0) translate3d(0, 0, 0);
+      margin-top: -10px;
+      opacity: 0; }
+    .aui .carousel-container .carousel-item .carousel-text hr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-top-width: 0;
+      margin: 20px 30%;
+      width: 40%; }
+  .aui .carousel-container .carousel-item.carousel-item-active .carousel-text h1, .aui .carousel-container .carousel-item.carousel-item-active .carousel-text h2, .aui .carousel-container .carousel-item.carousel-item-active .carousel-text p, .aui .carousel-container .carousel-item.carousel-item-active .carousel-text a {
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    margin-top: 0;
+    opacity: 1; }
+  .aui .carousel-container .carousel-item.carousel-item-active .carousel-text h2 {
+    -webkit-transition-delay: 0.7s;
+    -moz-transition-delay: 0.7s;
+    -o-transition-delay: 0.7s;
+    transition-delay: 0.7s; }
+  .aui .carousel-container .carousel-item.carousel-item-active .carousel-text p {
+    -webkit-transition-delay: 0.8s;
+    -moz-transition-delay: 0.8s;
+    -o-transition-delay: 0.8s;
+    transition-delay: 0.8s; }
+  .aui .carousel-container .carousel-item.carousel-item-active .carousel-text a {
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s; }
+  .aui .list-container .list-item {
+    display: block;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 25%; }
+    .aui .list-container .list-item h1, .aui .list-container .list-item h2, .aui .list-container .list-item p {
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0 0 3px;
+      max-width: 98%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top;
+      white-space: nowrap;
+      width: 100%; }
+    .aui .list-container .list-item p {
+      font-size: 100%; }
+    .aui .list-container .list-item img {
+      max-width: inherit;
+      width: 100%; }
+    .aui .list-container .list-item .list-text {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+      -o-transform-origin: 100% 50%;
+      transform-origin: 100% 50%;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      background: rgba(0, 0, 0, 0.5);
+      bottom: -100%;
+      color: #FFF;
+      display: block;
+      left: 0;
+      padding: 20px;
+      position: absolute;
+      right: 0; }
+    .aui .list-container .list-item .margins {
+      display: block; }
+    .aui .list-container .list-item:hover .list-text, .aui .list-container .list-item.none .list-text {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+      bottom: 0; }
+  .aui .img-bg-fixed {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .aui .img-bg-fixed.bg-right {
+      background-position: right; }
+    .aui .img-bg-fixed.bg-left {
+      background-position: left; }
+
+@media (max-width: 979px) {
+  .aui .list-container .list-item {
+    width: 50% !important; }
+    .aui .list-container .list-item .list-text {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+      bottom: 0; } }
+@media (max-width: 767px) {
+  .aui .list-container .list-item {
+    width: 100% !important; } }
+

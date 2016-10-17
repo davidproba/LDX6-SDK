@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="so-activities-hook">
+        <wb-resource deploy-path="/" source-path="/docroot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/docroot/WEB-INF/src"/>
+        <dependent-module archiveName="microblogs-portlet-service.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/microblogs-portlet/docroot/WEB-INF/lib/microblogs-portlet-service.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tasks-portlet-service.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/tasks-portlet/docroot/WEB-INF/lib/tasks-portlet-service.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AdvancedTaskList-portlet-service.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/AdvancedTaskList-portlet/docroot/WEB-INF/lib/AdvancedTaskList-portlet-service.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="LDX6-TeamSiteWall-portlet-service.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LDX6-TeamSiteWall-portlet/docroot/WEB-INF/lib/LDX6-TeamSiteWall-portlet-service.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/so-activities-hook/docroot/WEB-INF/classes"/>
+        <property name="context-root" value="so-activities-hook"/>
+    </wb-module>
+</project-modules>

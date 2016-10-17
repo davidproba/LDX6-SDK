@@ -1,0 +1,55 @@
+.profile-wrapper {
+  margin: 0px 0px 0px 0px;
+  display: block;
+  height: inherit;
+  background-color: white; }
+
+.profile-wrapper .profile-bgimage {
+  position: relative;
+  background-image: url("../img/man-coffee-cup-pen.jpg");
+  height: 375px;
+  background-size: cover; }
+
+.profile-wrapper .profile-container {
+  display: block;
+  position: relative; }
+
+.profile-wrapper .profile-container .picture-nonresp {
+  height: 180px;
+  width: 180px;
+  position: absolute;
+  top: 100px;
+  left: -140px;
+  border: 5px solid white;
+  border-radius: 50%; }
+
+.profile-wrapper .profile-container .picture-resp {
+  display: none;
+  position: absolute;
+  width: 100px;
+  left: 40%;
+  top: -120px;
+  border: 5px solid white;
+  border-radius: 50%; }
+
+.profile-wrapper .profile-container .profile-txt {
+  color: #808080;
+  margin-left: 10%;
+  margin-top: 105px;
+  text-align: justify;
+  padding-right: 20px;
+  padding-bottom: 20px; }
+
+@media (max-width: 767px) {
+  .profile-wrapper .profile-container .picture-nonresp {
+    display: none; }
+
+  .profile-wrapper .profile-container .picture-resp {
+    display: block; }
+
+  .profile-wrapper .profile-container .profile-txt {
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 0px;
+    padding-left: 20px; } }
+
